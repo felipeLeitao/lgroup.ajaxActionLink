@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ITSolutions.ActionLink.UI.WEB.Models.Category>
+
+<ul>
+
+    @foreach (var item in Model)
+    {
+
+       <li>@Ajax.ActionLink(
+       item.CategoryName,
+         "ListaProdutos", new { categoria = item.CategoryName }, new AjaxOptions
+         {
+             UpdateTargetId = "divProdutos", 
+             HttpMethod = "GET", 
+             InsertionMode = InsertionMode.Replace })</li>
+
+    }
+
+</ul>
+
+<hr />
+
+<div id="divProdutos">
+    @*@{Html.RenderAction("ListaProdutos");}*@
+</div>
+
